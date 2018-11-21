@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from .models import Book
 
 
 def book_list(request):
-    return render(request, 'book/book_list.html', {})
+    books = Book.objects.all().order_by('published_date')
+    return render(request, 'book/book_list.html', {'books': books})
+

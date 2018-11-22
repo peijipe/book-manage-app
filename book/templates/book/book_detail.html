@@ -3,7 +3,7 @@
 {% block content %}
     <div class="book">
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'book_edit' pk=book.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'book:book_edit' pk=book.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
 
         <h1>{{ book.title }}</h1>

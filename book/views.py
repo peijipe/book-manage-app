@@ -23,7 +23,7 @@ def book_new(request):
 
     else:
         form = BookForm()
-    return render(request, 'book/book_edit.html', {'form': form})
+    return render(request, 'book/book_new.html', {'form': form})
 
 
 def book_edit(request, pk):

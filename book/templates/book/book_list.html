@@ -1,18 +1,13 @@
-<html>
-    <head>
-        <title>Django Libraries</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Libraries</a></h1>
-        </div>
+{% extends 'book/base.html' %}
 
-        {% for book in books %}
-            <div>
+{% block content %}
+    {% for book in books %}
+        <div class="book">
+            <div class="date">
                 <p>published: {{ book.published_date }}</p>
-                <h1><a href="">{{ book.title }}</a></h1>
-                <p>{{ book.comment|linebreaksbr }}</p>
             </div>
-        {% endfor %}
-    </body>
-</html>
+            <h1><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h1>
+            <p>{{ book.comment|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

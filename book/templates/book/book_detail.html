@@ -1,0 +1,14 @@
+{% extends 'book/base.html' %}
+
+{% block content %}
+    <div class="book">
+        <h1>{{ book.title }}</h1>
+        <p>著者：{{ book.author }}</p>
+        <p>持ち主：{{ book.holder }}</p>
+        <p>使用者：{{ book.user }}</p>
+        <p>発刊日：{{ book.published_date }}</p>
+        <p>購入日：{{ book.purchased_date }}</p>
+        <p>ISBN：{{ book.isbn }}</p>
+        <p>備考：{{ book.comment|linebreaksbr }}</p>
+    </div>
+{% endblock %}

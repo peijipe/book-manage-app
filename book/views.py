@@ -19,7 +19,7 @@ def book_new(request):
         if form.is_valid():
             book = form.save()
             book.save()
-            return redirect('book_detail', pk=book.pk)
+            return redirect('book:book_detail', pk=book.pk)
 
     else:
         form = BookForm()
@@ -33,10 +33,10 @@ def book_edit(request, pk):
         if form.is_valid():
             book = form.save()
             book.save()
-            return redirect('book_detail', pk=book.pk)
+            return redirect('book:book_detail', pk=book.pk)
     else:
         form = BookForm(instance=book)
-    return render(request, 'book/book_edit.html', {'form': form})
+    return render(request, 'book/book_edit.html', {'form': form, 'pk': pk})
 
 
 def book_delete(request, pk):

@@ -2,9 +2,48 @@
 
 {% block content %}
     <h1>Edit book</h1>
-    <form method="POST" class="post-form">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+    <table class="table">
+    <form method="post" action="">
+    {% csrf_token %}
+    <tbody>
+      <tr>
+        <th>タイトル</th>
+        <td>{{ form.title }}</td>
+      </tr>
+      <tr>
+        <th>著者</th>
+        <td>{{ form.author }}</td>
+      </tr>
+      <tr>
+        <th>所有者</th>
+        <td>{{ form.holder }}</td>
+      </tr>
+      <tr>
+        <th>貸出先</th>
+        <td>{{ form.user }}</td>
+      </tr>
+      <tr>
+        <th>発刊日</th>
+        <td>{{ form.published_date }}</td>
+      </tr>
+      <tr>
+        <th>購入日</th>
+        <td>{{ form.purchased_date }}</td>
+      </tr>
+      <tr>
+        <th>ISBN</th>
+        <td>{{ form.isbn }}</td>
+      </tr>
+      <tr>
+        <th>備考</th>
+        <td>{{ form.comment }}</td>
+      </tr>
+    </tbody>
+      <tr>
+      <td><input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-secondary" type="reset" value="Reset">
+      </td>
+      </tr>
     </form>
+  </table>
 {% endblock %}

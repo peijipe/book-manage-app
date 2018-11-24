@@ -1,13 +1,28 @@
 {% extends 'book/base.html' %}
 
 {% block content %}
+
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">タイトル</th>
+          <th scope="col">所有者</th>
+          <th scope="col">貸出先</th>
+          <th scope="col">発刊日</th>
+          <th scope="col">購入日</th>
+        </tr>
+      </thead>
+      <tbody>
     {% for book in books %}
-        <div class="book">
-            <div class="date">
-                <p>published: {{ book.published_date }}</p>
-            </div>
-            <h1><a href="{% url 'book:book_detail' pk=book.pk %}">{{ book.title }}</a></h1>
-            <p>{{ book.comment|linebreaksbr }}</p>
-        </div>
+        <tr>
+          <td><a href="{% url 'book:book_detail' pk=book.pk %}">{{ book.title|truncatechars:30 }}</a></td>
+          <td>{{ book.holder }}</td>
+          <td>{{ book.user }}</td>
+          <td>{{ book.published_date }}</td>
+          <td>{{ book.purchased_date }}</td>
+        </tr>
     {% endfor %}
+      </tbody>
+    </table>
+
 {% endblock %}

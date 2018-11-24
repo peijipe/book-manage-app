@@ -4,6 +4,7 @@
     <div class="book">
         {% if user.is_authenticated %}
             <a class="btn btn-default" href="{% url 'book:book_edit' pk=book.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'book:book_delete' pk=book.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
         {% endif %}
 
         <h1>{{ book.title }}</h1>

@@ -10,6 +10,10 @@
     text-decoration: none;
 }
 
+.page-header p {
+    float: right;
+}
+
 .content {
     margin-left: 40px;
 }

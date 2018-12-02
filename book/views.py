@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Book
 from .forms import BooksForm
+from django.contrib.auth.decorators import login_required
 
 
 def book_list(request):
@@ -25,6 +26,7 @@ def book_detail(request, pk):
 #         form = BooksForm()
 #     return render(request, 'book/book_new.html', {'form': form})
 
+@login_required
 def book_new(request):
     form = BooksForm(request.POST or None)
     if form.is_valid():
@@ -64,6 +66,7 @@ def book_new(request):
 #         form = BooksForm(instance=book)
 #     return render(request, 'book/book_edit.html', {'form': form, 'pk': pk})
 
+@login_required
 def book_edit(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
@@ -113,6 +116,7 @@ def book_edit(request, pk):
     })
 
 
+@login_required
 def book_delete(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":

@@ -14,15 +14,6 @@
                 <a href="{% url 'book:book_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
             {% endif %}
             <h1><a href="/">Django Libraries</a></h1>
-
-            <!--<ul>-->
-                {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class="logout">Logout</a>
-                {% else %}
-                <p><a href="{% url 'accounts:signup' %}" class="signup">Sign up</a></p>
-                <p><a href="{% url 'login' %}" class="login">Login  /</a></p>
-                {% endif %}
-            <!--</ul>-->
         </div>
         <div class="content container">
             {% block content %}
